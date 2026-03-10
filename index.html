@@ -7,5 +7,23 @@
             font-family: Tahoma, sans-serif;
         }
     </style>
-</head>  
+</head>
+<body>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        console.log("Code from URL: ", code);
+        
+        if (code) {
+            if (window.opener) {
+                console.log("Sending Code");
+                window.opener.postMessage({ type: 'PATREON_CODE', code: code }, '*');
+            } else {
+                console.warn("No Window Found");
+            }
+        } else {
+            console.warn("No Code Found");
+        }
+    </script>
+</body>
 </html>
