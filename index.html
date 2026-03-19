@@ -6,21 +6,21 @@
     <title>LOVE: unscripted</title>
     <style>
       
-        body { font-family: Tahoma, sans-serif; margin: 20px 0 0 20px; background-color: #fff; color: #15212d; }
+        body { font-family: Tahoma, sans-serif; margin: 20px 20px 0 20px; background-color: #fff; color: #15212d; }
         .title-label { background-color: #eaebef; color: #15212d; display: inline-block; padding: 3px 10px; font-weight: bold; border-radius: 5px; }
         .section-heading { color: #15212d; padding-left: 28px; margin-top: 1.5em; margin-bottom: 0.25em; font-weight: bold; }
         .indented-paragraph { padding-left: 28px; margin: 0.5em 0; }
         .tier-button { display: inline-block; padding: 3px 20px; font-weight: bold; border-radius: 5px; color: blue; text-decoration: underline; }
         .tier-button a { color: inherit; text-decoration: none; }
         .tiers-container { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; justify-content: space-between; }
-        .tier { flex: 1 1 100px; min-width: 100px; background-color: transparent; }
+        .tier { flex: 1 1 250px; min-width: 220px; background-color: transparent; }
         .tier-header { clear: both; line-height: 32px; font-weight: bold; margin-bottom: 10px; }
         .tier-header img { float: left; margin: 0 10px 0 80px; }
         .benefits { list-style: none; font-weight: bold; padding-left: 20px; margin: 0 0 0 80px; }
         .benefits li { line-height: 1.6; margin-bottom: 6px; }
         .benefits li:last-child { margin-bottom: 0; }
 
-        @media (max-width: 800px) 
+        @media (max-width: 920px) 
         {
             .tiers-container { flex-direction: column; gap: 30px; }
             .tier { flex: none; width: 100%; }
@@ -109,16 +109,20 @@
 
             else
             {
-                document.querySelector('.title-label').textContent = 'Error: No Window';
-                document.querySelector('.indented-paragraph').textContent = 'Text';
+                document.querySelector('.title-label').style.color = 'white';
+                document.querySelector('.title-label').style.background = '#890000';
+                document.querySelector('.title-label').textContent = 'Error: Game Window Not Found';
+                document.querySelector('.indented-paragraph').innerHTML = 'Patreon successfully sent a single-use authentication token, but the game window cannot be found. This most likely occured because you closed the game window prior to completeing authentication.  Please relaunch Patreon authentication from the game and try again. If this error persists, you can get help on Discord by posting in the <a href="https://discord.gg/BuYEEmaj4d">#general-questions</a> channel.';
                 hideExtraContent();
             }
         }
 
         else
         {
-            document.querySelector('.title-label').textContent = 'Error: No Code';
-            document.querySelector('.indented-paragraph').textContent = 'Text';
+            document.querySelector('.title-label').style.color = 'white';
+            document.querySelector('.title-label').style.background = '#890000';
+            document.querySelector('.title-label').textContent = 'Error: Patreon Token Not Found';
+            document.querySelector('.indented-paragraph').innerHTML = 'Patreon failed to send a single-use authentication token. Please relaunch Patreon authentication from the game and try again. If this error persists, you can get help on Discord by posting in the <a href="https://discord.gg/BuYEEmaj4d">#general-questions</a> channel.';
             hideExtraContent();
         }
     </script>
